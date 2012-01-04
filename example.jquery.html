@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js"></script>
+  </head>
+  <body>
+    <header>
+      <hgroup>
+        <h1>Website status messenger</h1>
+        <h2>Jquery example</h2>
+      </hgroup>
+    </header>
+    <div role="main">
+      <article>
+        <p>Click one of the links below to start an example. The links can be clicked multiple times to add the messages to the que and it will be shown after the the delay is over</p>
+        <ul>
+          <li id="example_1">Positive from the top</li>
+          <li id="example_2">Negative from the top</li>
+          <li id="example_3">Neutral from the top</li>
+          <li id="example_4">Neutral from below</li>
+        </ul>
+      </article>
+    </div>
+    <!-- JavaScript at the bottom for fast page loading -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script defer src="websiteStatusMessenger.js"></script>
+    <script defer src="websiteStatusMessenger.jquery.js"></script>
+
+    <script defer>
+      var statusMessenger1, statusMessenger2;
+
+      jQuery(document).ready(function(){
+          statusMessenger1 = new WebsiteStatusMessenger();
+
+          statusMessenger2 = new WebsiteStatusMessenger({id: "other_messages"});
+
+          jQuery("#example_1").click(function() {
+              statusMessenger1.addMessage("Positive from the top", "positive");
+          });
+          jQuery("#example_2").click(function() {
+              statusMessenger1.addMessage("Negative from the top", "negative");
+          });
+          jQuery("#example_3").click(function() {
+              statusMessenger1.addMessage("Neutral from the top", "neutral");
+          });
+          jQuery("#example_4").click(function() {
+              statusMessenger2.addMessage("Neutral from below", "neutral");
+          });
+      });
+    </script>
+  </body>
+</html>
