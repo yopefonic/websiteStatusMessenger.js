@@ -28,6 +28,28 @@ The website status messenger comes with a set of build in options. Below you wil
 }
 ```
 
+# Customization
+## Animation &amp; event binding
+The binding of the close action on the notification and the animation of the message. the methods `setCloseListener()`, `connectorOpenMessage()` and `connectorCloseMessage()` are part of this section of the library and are therefore part of a different file.
+
+### setCloseListener()
+This handles the binding of the close action. It is advised to use both the `this.closeMessage()` and the `this.nextMessage()` methods. When the close should not trigger a new opening of the next message the `this.nextMessage()` can be omitted.
+
+### connectorOpenMessage()
+This is method should hold the actual animation of opening the message. In the supplied jQuery version (websiteStatusMessenger.jquery.js) it uses the jQuery `slideDown()` method. The options value `this.options.id` can be used as identifier and the `this.options.animationSpeed` options value should be used as animation time.
+
+Please note this method requires a return value of `true` after the animation is done.
+
+### connectorCloseMessage()
+This is method should hold the actual animation of closing the message. In the supplied jQuery version (websiteStatusMessenger.jquery.js) it uses the jQuery `slideUp()` method. The options value `this.options.id` can be used as identifier and the `this.options.animationSpeed` options value should be used as animation time.
+
+Please note this method requires a return value of `false` after the animation is done.
+
+## Custom options
+The object is build to handle custom options. If you feel you need an extra set of configurable variables you can pass them into object at creation by using an associative array. This can also be done later but in general it is advised to use the options array to do so on creation of the object.
+
+Possible uses of this behaviour could be that you want to use multiple messengers and one animates differently. This is fully up to you how you implement this.
+
 # License
 (The MIT License)
 
