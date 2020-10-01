@@ -1,3 +1,5 @@
+# Great library for Leaning/Usage  
+
 # Goal
 the website status messenger is a javaScript library that allows you to easily show messages to your user about the actions that have been taking place. It's goal is not so much to deliver a finished plugin but a framework to build your own styling upon.
 
